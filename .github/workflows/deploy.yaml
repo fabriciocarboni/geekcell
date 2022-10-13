@@ -1,6 +1,7 @@
 name: Build & Deploy image to ECR
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
 
