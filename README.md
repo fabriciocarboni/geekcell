@@ -1,5 +1,7 @@
 # AWS automation in order to provision the infra needed for a ECS Fargate cluster
 
+Ps: Terragrunt implementation of this stack is available [here](https://github.com/fabriciocarboni/geekcell-terragrunt)
+
 ## Requirements:
 
 Terraform version 1.3.2 ( https://releases.hashicorp.com/terraform/1.3.2/ )
@@ -59,8 +61,7 @@ Considerations:
 - The Fargate tasks in turn starts provisioning the new tasks but the original tasks is still running. Only after the health check executed by load balancer on the target group is healthy and the previous targets are completely drained and deregistered, then the previous tasks are stopped from ecs tasks.
 
 Not completed tasks:
-- Redirect port 80 to 443. When I tried to do it, aws requested to import a certicate. I could request a certificate on AWS however I was asked about a domain name
-- Terragrunt. I could not implement Terragrant because I would need more time to understand how it works. 
+- Redirect port 80 to 443. When I tried to do it, aws requested to import a certificate. I was asked about a domain name. After some research I tried to implement the certificate on my own domains which are hosted on Cloudflare. However when I set the CNAMEs names pointing to AWS CNAMEs Values, I was informed that I should buy a Advanced Certificate Manager on Cloudflare which would cost me some money.
 - Blue/Green deployment. I would need more time to finish this too.
 
 Ps.: For this challenge I have used my own account at acloud.guru
