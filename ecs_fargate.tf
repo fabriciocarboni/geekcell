@@ -142,3 +142,6 @@ resource "aws_ecs_service" "app" {
   }
 }
 
+output {
+  aws_region = var.aws_region
+}
